@@ -13,7 +13,9 @@ const ProfileInfo = () => {
     return (
       <div className="about">
         <img src={avatar_url} alt="Avatar" className="avatar item" />
-        <span className="item">{name}</span>
+        <span className="item">
+          <b>{name}</b>
+        </span>
         <span className="item">{login}</span>
         <span className="item">{bio}</span>
         <button
