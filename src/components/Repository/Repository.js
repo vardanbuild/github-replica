@@ -8,11 +8,13 @@ import './Repository.css';
 const renderRepos = (repos) => {
   if (repos && Array.isArray(repos) && repos.length > 0) {
     return repos.map((repo) => {
-      const { name, updated_at, id, git_url, language } = repo;
+      const { name, updated_at, id, svn_url, language } = repo;
       return (
         <div className="repo" key={id}>
           <div className="topRow">
-            <a href={git_url}>{name}</a>
+            <a href={svn_url} target="_blank" rel="noopener noreferrer">
+              {name}
+            </a>
             <button type="button">Star</button>
           </div>
           <span>{language}</span>&nbsp;

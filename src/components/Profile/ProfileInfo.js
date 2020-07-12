@@ -20,7 +20,7 @@ const ProfileInfo = () => {
           type="button"
           name=""
           onClick={() => {}}
-          className="editProfileBtn item"
+          className="editProfileBtn"
         >
           Edit Profile
         </button>
