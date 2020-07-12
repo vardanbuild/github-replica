@@ -43,9 +43,18 @@ const Repository = () => {
     getRepositories();
   }, []);
 
+  //this method needs to be debounced
   const onRepoSearch = (e) => {
-    e.stopPropogation();
+    console.log(e?.target?.value);
+    const repoclone = repos.slice(0);
+    e.stopPropagation();
     e.preventDefault();
+    const query = e?.target?.value;
+    if (query) {
+      setRepos(repoclone.filter((e) => e.name.includes(e?.target?.value)));
+    } else {
+      setRepos(repos);
+    }
   };
 
   return (
@@ -54,7 +63,7 @@ const Repository = () => {
         className="bp3-input search"
         type="text"
         placeholder="Find a repository..."
-        onClick={onRepoSearch}
+        onChange={onRepoSearch}
       />
       {renderRepos(repos)}
     </div>

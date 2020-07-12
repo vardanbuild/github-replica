@@ -1,12 +1,14 @@
+@import '~@blueprintjs/core/lib/css/blueprint.css';
+
 .App {
   display: flex;
   flex-direction: row;
 }
 
-.profileInfo{
-  flex: 1
+.profileInfo {
+  flex: 1;
 }
 
-.profileTabs{
-  flex: 2
+.profileTabs {
+  flex: 2;
 }
