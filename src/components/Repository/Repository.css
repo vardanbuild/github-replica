@@ -1,0 +1,20 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.repo {
+  margin-right: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid grey;
+}
+
+.search {
+  width: fit-content;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}

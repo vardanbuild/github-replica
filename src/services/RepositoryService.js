@@ -1,6 +1,6 @@
 import xhr from 'xhr-async';
 
-export const getRepositories = () => {
-  const url = 'https://github.com/supreetsingh247?tab=repositories';
-  return xhr.get;
-};
+export function getRepositories() {
+  const url = 'https://api.github.com/users/supreetsingh247/repos';
+  return xhr.get(url);
+}
