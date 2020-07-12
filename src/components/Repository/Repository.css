@@ -21,6 +21,7 @@
 }
 
 .noData {
+  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,4 +34,8 @@
 .repoTypeSelector {
   padding-left: 10px;
   width: 200px;
+}
+
+.newBtn {
+  margin-left: 10px;
 }

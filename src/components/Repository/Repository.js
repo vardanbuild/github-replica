@@ -123,10 +123,9 @@ const Repository = () => {
   };
 
   const renderLanguageSelector = () => {
-    const repoclone = repos.slice(0);
     const languages = Array.from(
       new Set(
-        repoclone
+        repoclones
           .map((repo) => repo.language)
           .filter((languages) => languages !== null)
       )
@@ -150,6 +149,9 @@ const Repository = () => {
         {renderRepoSearch()}
         {renderRepoTypeSelector()}
         {renderLanguageSelector()}
+        <button type="button" className="newBtn">
+          New
+        </button>
       </div>
       {renderRepos(repos)}
     </div>
