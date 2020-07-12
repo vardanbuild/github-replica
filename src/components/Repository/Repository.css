@@ -11,7 +11,7 @@
 
 .search {
   width: fit-content;
-  height: 38px;
+  height: 38px !important;
 }
 
 .topRow {

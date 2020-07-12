@@ -24,7 +24,11 @@ const renderRepos = (repos) => {
       );
     });
   }
-  return <span className="noData">No repositories found</span>;
+  return (
+    <span className="noData">
+      User doesn’t have any repositories that match.
+    </span>
+  );
 };
 
 const Repository = () => {
@@ -62,6 +66,22 @@ const Repository = () => {
     }
   };
 
+  //this method needs to be debounced to avoid mutliple triggers in short duration
+  //this method of select is based on specific attribute e.g. fork, archived of the repo object
+  const onRepoTypeSelect = (option) => {
+    const repoclone = repos.slice(0);
+    const query = option?.value;
+    //ideally this should be server side search, for simplicity adding client side search
+    if (query) {
+      const matchedRepos = repoclone.filter((repo) => {
+        return repo[query] === true;
+      });
+      setRepos(matchedRepos);
+    } else {
+      getRepositories();
+    }
+  };
+
   const renderRepoSearch = () => {
     return (
       <input
@@ -77,7 +97,7 @@ const Repository = () => {
     const options = [
       { value: '', label: 'All' },
       { value: 'sources', label: 'Sources' },
-      { value: 'forks', label: 'Forks' },
+      { value: 'fork', label: 'Forks' },
       { value: 'archived', label: 'Archived' },
       { value: 'mirrors', label: 'Mirrors' },
     ];
@@ -86,6 +106,7 @@ const Repository = () => {
         options={options}
         className="repoTypeSelector"
         placeholder={'Type'}
+        onChange={onRepoTypeSelect}
       />
     );
   };
