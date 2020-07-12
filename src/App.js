@@ -1,17 +1,16 @@
 import React from 'react';
 
 import ProfileInfo from './Profile/ProfileInfo'
-import Repository from './Repository/Repository'
+import ProfileTabs from './Profile/ProfileTabs'
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <ProfileInfo />
-        <Repository />
-      </header>
+      <div className="profileInfo">        <ProfileInfo /></div>
+      <div className="profileTabs">             <ProfileTabs /></div>
+
     </div>
   );
 }
