@@ -55,7 +55,6 @@ const Repository = () => {
     e.stopPropagation();
     e.preventDefault();
     const query = e?.target?.value;
-    console.log('query', query);
     //ideally this should be server side search, for simplicity adding client side search
     if (query) {
       const matchedRepos = repoclones.filter((repo) =>
@@ -83,7 +82,6 @@ const Repository = () => {
   //this method needs to be debounced to avoid mutliple triggers in short duration
   const onLanguageSearch = (option) => {
     const query = option?.value;
-    console.log('query', query);
     //ideally this should be server side search, for simplicity adding client side search
     if (query) {
       const matchedRepos = repoclones.filter(
