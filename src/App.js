@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ProfileInfo from './Profile/ProfileInfo'
-import ProfileTabs from './Profile/ProfileTabs'
+import ProfileInfo from './components/Profile/ProfileInfo'
+import ProfileTabs from './components/Profile/ProfileTabs'
 
 import './App.css';
 
