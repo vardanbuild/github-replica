@@ -11,6 +11,7 @@
 
 .search {
   width: fit-content;
+  height: 38px;
 }
 
 .topRow {
@@ -23,4 +24,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.filterSection {
+  display: flex;
+}
+
+.repoTypeSelector {
+  padding-left: 10px;
+  width: 200px;
 }

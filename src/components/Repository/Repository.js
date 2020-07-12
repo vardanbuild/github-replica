@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
 import moment from 'moment';
 
 import * as RepositoryService from '../../services/RepositoryService';
@@ -61,14 +62,58 @@ const Repository = () => {
     }
   };
 
-  return (
-    <div className="main">
+  const renderRepoSearch = () => {
+    return (
       <input
         className="bp3-input search"
         type="text"
         placeholder="Find a repository..."
         onChange={onRepoSearch}
       />
+    );
+  };
+
+  const renderRepoTypeSelector = () => {
+    const options = [
+      { value: '', label: 'All' },
+      { value: 'sources', label: 'Sources' },
+      { value: 'forks', label: 'Forks' },
+      { value: 'archived', label: 'Archived' },
+      { value: 'mirrors', label: 'Mirrors' },
+    ];
+    return (
+      <Select
+        options={options}
+        className="repoTypeSelector"
+        placeholder={'Type'}
+      />
+    );
+  };
+
+  const renderLanguageSelector = () => {
+    const options = [
+      { value: '', label: 'All' },
+      { value: 'sources', label: 'Sources' },
+      { value: 'forks', label: 'Forks' },
+      { value: 'archived', label: 'Archived' },
+      { value: 'mirrors', label: 'Mirrors' },
+    ];
+    return (
+      <Select
+        options={options}
+        className="repoTypeSelector"
+        placeholder={'Language'}
+      />
+    );
+  };
+
+  return (
+    <div className="main">
+      <div className="filterSection">
+        {renderRepoSearch()}
+        {renderRepoTypeSelector()}
+        {renderLanguageSelector()}
+      </div>
       {renderRepos(repos)}
     </div>
   );
