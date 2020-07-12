@@ -23,37 +23,41 @@ const renderRepos = (repos) => {
       );
     });
   }
-  return 'No repositories found';
+  return <span className="noData">No repositories found</span>;
 };
 
 const Repository = () => {
   const [repos, setRepos] = useState([]);
-  console.log(repos);
+
+  const getRepositories = async () => {
+    const { response, error } = await RepositoryService.getRepositories();
+    if (!error) {
+      setRepos(response);
+    } else {
+      //show error
+      alert('Error fetching repositories');
+    }
+  };
 
   useEffect(() => {
-    const getRepositories = async () => {
-      const { response, error } = await RepositoryService.getRepositories();
-      if (!error) {
-        setRepos(response);
-      } else {
-        //show error
-        alert('Error fetching repositories');
-      }
-    };
     getRepositories();
   }, []);
 
-  //this method needs to be debounced
+  //this method needs to be debounced to avoid mutliple triggers in short duration
   const onRepoSearch = (e) => {
-    console.log(e?.target?.value);
     const repoclone = repos.slice(0);
     e.stopPropagation();
     e.preventDefault();
     const query = e?.target?.value;
+    console.log('query', query);
+    //ideally this should be server side search, for simplicity adding client side search
     if (query) {
-      setRepos(repoclone.filter((e) => e.name.includes(e?.target?.value)));
+      const matchedRepos = repoclone.filter((repo) =>
+        repo.name.toLowerCase().includes(query.toLowerCase())
+      );
+      setRepos(matchedRepos);
     } else {
-      setRepos(repos);
+      getRepositories();
     }
   };
 
