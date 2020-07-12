@@ -1,6 +1,6 @@
-import xhr from 'xhr-async'
+import xhr from 'xhr-async';
 
-export const getProfileInfo = () => {
-    const url = 'https://api.github.com/users/supreetsingh247'
-    return xhr.get
-}
+export const getRepositories = () => {
+  const url = 'https://github.com/supreetsingh247?tab=repositories';
+  return xhr.get;
+};

@@ -37,6 +37,7 @@ const ProfileInfo = () => {
         setProfileInfo(response);
       } else {
         //show error
+        alert('Error fetching user profile');
       }
     };
     getProfileInfo();
