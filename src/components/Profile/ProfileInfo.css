@@ -1,3 +1,20 @@
-.main{
+.about {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
 
+.item {
+  padding: 10px 0;
+}
+
+.editProfileBtn {
+  width: fit-content;
+  padding: 10px;
+  height: fit-content;
+  border-radius: 10px;
+}
+
+.avatar {
+  border-radius: 50%;
 }
